@@ -2,7 +2,7 @@ exports.seed = function (knex, Promise) {
   return knex('profiles').del()
     .then(function () {
       return Promise.all([
-        knex('profiles').insert({name: 'Aaron MacDonald', image: 'https://avatars0.githubusercontent.com/u/28091137?v=4&s=4', characteric: 'Coach', location_id: 1001}),
+        knex('profiles').insert({name: 'Aaron MacDonald', image: 'https://avatars0.githubusercontent.com/u/28091137?v=4&s=400', characteric: 'Coach', location_id: 1001}),
         knex('profiles').insert({name: 'Annelise Toh', image: 'https://enspiral-dev-academy.slack.com/team/annelise_t_kea', characteric: 'Peace-loving', location_id: 1001}),
         knex('profiles').insert({name: 'Ania Podhajska', image: 'https://avatars2.githubusercontent.com/u/26533359?v=4&s=400', characteric: 'CSS Master', location_id: 1002}),
         knex('profiles').insert({name: 'Annah Gerletti', image: 'https://avatars0.githubusercontent.com/u/26911753?v=4&s=400', characteric: 'Coding Manager', location_id: 1003}),

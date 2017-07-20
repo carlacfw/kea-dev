@@ -21,6 +21,10 @@ router.get('/profiles', function (req, res) {
   })
 })
 
+router.get('/profile-page', function (req, res) {
+  res.render('profile-page')
+})
+
 router.get('/profile-page/:id', function (req, res) {
   var id = req.params.id
   db.getProfilePage(id, req.app.get('connection'))
@@ -32,10 +36,7 @@ router.get('/profile-page/:id', function (req, res) {
   })
 })
 
-//add :id to route
-router.get('/profile/edit', function (req, res) {
-      res.render('profile')
-})
+
 
 router.get('/location', function (req, res) {
       res.render('location')
