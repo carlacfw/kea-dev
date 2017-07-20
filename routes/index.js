@@ -15,18 +15,21 @@ router.get('/index', function (req, res) {
     .catch(function (err) {
       res.status(500).send('DATABASE ERROR: ' + err.message)
     })
-
 })
 
-router.get('/users', function (req, res){
-  db.getUsers(req.app.get('connection'))
-  .then(function (users){
-    res.render('locations', {users: users})
-  })
-  .catch(function(err){
-    res.status(500).send('DATABASE ERROR: '+ err.message)
-  })
-  
+router.get('/profile', function (req, res){
+    db.getUsers(req.app.get('connection'))
+    .then(function (users){
+      res.render('locations', {users: users})
+    })
+    .catch(function(err){
+      res.status(500).send('DATABASE ERROR: '+ err.message)
+    })
+})
+
+
+router.get('/location', function (req, res) {
+      res.render('location')
 })
 
 module.exports = router
