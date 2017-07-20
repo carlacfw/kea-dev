@@ -3,15 +3,20 @@ var router = express.Router()
 
 var db = require('../db')
 
-router.get('/', function (req, res) {
-  // db.getUsers(req.app.get('connection'))
-  //   .then(function (users) {
-  //     res.render('index', { users: users })
-  //   })
-  //   .catch(function (err) {
-  //     res.status(500).send('DATABASE ERROR: ' + err.message)
-  //   })
-  res.send('hello world')
+router.get('/index', function (req, res) {
+      res.render('index')
+})
+
+router.get('/users', function (req, res) {
+      res.render('profile')
+})
+//add :id to route
+router.get('/profile/edit', function (req, res) {
+      res.render('profile')
+})
+
+router.get('/location', function (req, res) {
+      res.render('location')
 })
 
 module.exports = router
