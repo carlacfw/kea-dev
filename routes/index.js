@@ -17,15 +17,17 @@ router.get('/index', function (req, res) {
     })
 })
 
-router.get('/profile', function (req, res){
+router.get('/profiles', function (req, res){
     db.getUsers(req.app.get('connection'))
     .then(function (users){
-      res.render('locations', {users: users})
+      res.render('profile', {users: users})
     })
     .catch(function(err){
       res.status(500).send('DATABASE ERROR: '+ err.message)
     })
 })
+
+
 
 
 router.get('/location', function (req, res) {

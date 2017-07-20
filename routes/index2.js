@@ -26,7 +26,11 @@ router.get('/users', function (req, res){
   .catch(function(err){
     res.status(500).send('DATABASE ERROR: '+ err.message)
   })
-  
+
 })
 
+
+router.get('profiles', function(req, res){
+  res.render('profiles')
+})
 module.exports = router
