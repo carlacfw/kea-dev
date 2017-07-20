@@ -7,7 +7,7 @@ router.get('/index', function (req, res) {
       res.render('index')
 })
 
-router.get('/users', function (req, res) {
+router.get('/profile', function (req, res) {
       res.render('profile')
 })
 //add :id to route
