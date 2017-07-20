@@ -4,7 +4,6 @@ exports.up = function (knex, Promise) {
     table.string('name')
     table.integer('image')
     table.string('characteric')
-    table.integer('location_id')
   })
 }
 
