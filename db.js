@@ -1,11 +1,13 @@
 
 module.exports = {
   getProfiles: getProfiles,
-  getProfilePage: getProfilePage
+  getProfilePage: getProfilePage,
+  getLocations: getLocations
 }
 //this is the profile page with a list of names!
 function getProfiles (connection) {
-  return connection('profiles').select()
+  return connection('profiles')
+    .select()
 }
 
 //this is the individual profile page
@@ -15,4 +17,11 @@ function getProfilePage (id, connection) {
     .select('profiles.*', 'locations.*')
     .join('locations', 'locations.id' , '=', 'location_id')
     .first()
+}
+
+function getLocations (connection){
+  return connection('locations')
+
+
+
 }
