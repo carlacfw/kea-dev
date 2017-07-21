@@ -5,9 +5,9 @@ module.exports = {
 }
 
 function getUsers (connection) {
-  return connection('users').select()
+  return connection('profiles').select()
 }
 
 function getUser (id, connection) {
-  return connection('users').where('id', id)
+  return connection('profiles').where('id', id)
 }

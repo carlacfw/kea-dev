@@ -9,26 +9,28 @@ router.get('/', function(req, res){
 
 router.get('/index', function (req, res) {
   db.getUsers(req.app.get('connection'))
-    .then(function (users) {
-      res.render('index', { users: users })
+    .then(function (profiles) {
+      res.render('index', { profiles: profiles })
+      console.log(profiles);
     })
     .catch(function (err) {
       res.status(500).send('DATABASE ERROR: ' + err.message)
     })
 })
 
-router.get('/profiles', function (req, res){
+router.get('/profile', function (req, res){
     db.getUsers(req.app.get('connection'))
-    .then(function (users){
-      res.render('profile', {users: users})
+    .then(function (profiles){
+      res.render('profile', profiles)
     })
     .catch(function(err){
       res.status(500).send('DATABASE ERROR: '+ err.message)
     })
 })
 
-
-
+router.get('profiles', function(req, res){
+  res.render('profiles')
+})
 
 router.get('/location', function (req, res) {
       res.render('location')
