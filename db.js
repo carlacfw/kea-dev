@@ -1,13 +1,17 @@
 
 module.exports = {
-  getUser: getUser,
-  getUsers: getUsers
+  getProfiles: getProfiles,
+  getProfilePage: getProfilePage
 }
 
-function getUsers (connection) {
+function getProfiles (connection) {
   return connection('profiles').select()
 }
 
-function getUser (id, connection) {
-  return connection('profiles').where('id', id)
+function getProfilePage (id, connection) {
+  return connection('profiles')
+      .join('locations', 'locations.id' , '=', 'location_id')
+      .select('profiles.*', 'locations.*')
+      .where('profiles.id', id)
+      .first()
 }
