@@ -10,8 +10,9 @@ function getProfiles (connection) {
 
 function getProfilePage (id, connection) {
   return connection('profiles')
-      .join('locations', 'locations.id' , '=', 'location_id')
+    .where('profiles.id', id)      
       .select('profiles.*', 'locations.*')
-      .where('profiles.id', id)
+      .join('locations', 'locations.id' , '=', 'location_id')
+
       .first()
 }
